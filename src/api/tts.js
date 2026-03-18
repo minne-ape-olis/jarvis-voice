@@ -1,4 +1,5 @@
-const API_KEY = import.meta.env.VITE_ELEVENLABS_API_KEY
+import { getKey } from './keys'
+
 const VOICE_ID = 'JBFqnCBsd6RMkjVDRZzb' // George
 
 export async function speakText(text, onStart, onEnd) {
@@ -8,7 +9,7 @@ export async function speakText(text, onStart, onEnd) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'xi-api-key': API_KEY,
+        'xi-api-key': getKey('VITE_ELEVENLABS_API_KEY'),
       },
       body: JSON.stringify({
         text,

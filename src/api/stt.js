@@ -1,4 +1,4 @@
-const API_KEY = import.meta.env.VITE_ELEVENLABS_API_KEY
+import { getKey } from './keys'
 
 export async function transcribeAudio(audioBlob) {
   const formData = new FormData()
@@ -7,7 +7,7 @@ export async function transcribeAudio(audioBlob) {
 
   const res = await fetch('https://api.elevenlabs.io/v1/speech-to-text', {
     method: 'POST',
-    headers: { 'xi-api-key': API_KEY },
+    headers: { 'xi-api-key': getKey('VITE_ELEVENLABS_API_KEY') },
     body: formData,
   })
 

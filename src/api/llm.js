@@ -1,4 +1,4 @@
-const API_KEY = import.meta.env.VITE_OPENROUTER_API_KEY
+import { getKey } from './keys'
 
 const SYSTEM_PROMPT = `You are Jarvis, a sharp and capable AI assistant. Direct, dry wit, no filler.
 Erik is talking to you hands-free at the gym. Keep responses concise — 1-3 sentences
@@ -10,7 +10,7 @@ export async function chatCompletion(messages) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${API_KEY}`,
+      'Authorization': `Bearer ${getKey('VITE_OPENROUTER_API_KEY')}`,
       'HTTP-Referer': window.location.origin,
       'X-Title': 'Jarvis Voice',
     },
